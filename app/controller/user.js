@@ -7,6 +7,7 @@ const signup = (async (req, res)=>{
        return res.status(422).json({ message: "Already exist !"});
    }
    data = await model.user.create(req.body);
+   util.sent.mailer
    res.status(200).json({ message: "User successfully created !", data });
 })  
 
@@ -16,7 +17,6 @@ const login = (async (req, res)=>{
         return res.status(422).json({ message: "Invalid !"});
     }
     const token = 123 //JWT token
-    util.sent.mailer
     res.status(200).json({ message: "Login successfully !", token });
  })  
 
